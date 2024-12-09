@@ -46,7 +46,6 @@ function HomeScreen() {
 
   return (
     <>
-    
     <Navbar/>
       <div className="flex bg-light-gradient dark:bg-dark-gradient h-full w-full">
         {/* Sidebar */}
