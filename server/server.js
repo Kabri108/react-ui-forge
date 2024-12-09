@@ -18,6 +18,7 @@ app.get('/',(req,res)=>{
 
 app.use("/api/components",componentRouter)
 
+const PORT=process.env.PORT || 5000;
 app.listen(5000, () => {
     console.log(`Server is running on port ${PORT}`);
   });
