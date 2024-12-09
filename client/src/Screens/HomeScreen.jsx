@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import MainContent from '../Component/Maincontent';
 import Sidebar from '../Component/Sidebar';
 import Axios from '../APIs/Axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../Component/Navbar';
+import MainContent from '../Component/MainContent';
 
 function HomeScreen() {
   const [allCompo, setAllCompo] = useState([]); // All components
