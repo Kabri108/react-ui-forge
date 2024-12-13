@@ -31,7 +31,7 @@ const Sidebar = ({ components }) => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-14 z-40 left-0 w-64 h-screen bg-white dark:bg-dark-primary border-r-2 border-r-gray-700 overflow-y-auto transition-transform duration-300 ${
+        className={`fixed top-14  z-40 left-0 w-64 h-screen bg-white dark:bg-dark-primary border-r-2 border-r-gray-700 overflow-y-auto transition-transform duration-300 ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:translate-x-0`}
       >
