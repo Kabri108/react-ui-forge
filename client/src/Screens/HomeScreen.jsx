@@ -4,14 +4,13 @@ import Axios from '../APIs/Axios';
 import { useParams } from 'react-router-dom';
 import Navbar from '../Component/Navbar';
 import MainContent from '../Component/MainContent';
-import { FaReact } from 'react-icons/fa';
 import Footer from '../Component/Footer';
+import QuickStart from '../Component/QuickStart';
 
 function HomeScreen() {
   const [allCompo, setAllCompo] = useState([]); // All components
   const [filteredComponents, setFilteredComponents] = useState([]); // Components filtered by category
   const { categoryId } = useParams(); // Get category from URL
-  const [loading, setLoading] = useState(true);
 
   // Fetch all components on mount
   useEffect(() => {
@@ -19,10 +18,8 @@ function HomeScreen() {
       try {
         const res = await Axios.get('/components');
         setAllCompo(res.data);
-        setLoading(false);
       } catch (error) {
         console.log('Error fetching components:', error);
-        setLoading(false);
       }
     };
 
@@ -56,36 +53,33 @@ function HomeScreen() {
       <Sidebar components={allCompo} />
 
       {/* Main Content */}
-      <div className="flex-1 md:ml-64 sm:ml-0">
-        <h2 className="mt-24 flex items-center justify-center text-rose-500 text-3xl font-bold">
+      <div className="flex-1 md:ml-64 sm:ml-0 mt-24">
+        {!categoryId && (
+          <>
+            <QuickStart />
+          </>
+        )}
+        <h2 className="mt-12 flex items-center justify-center text-rose-500 text-3xl font-bold">
           {categoryId
             ? `✨ Check out the ${filteredComponents.length} different types of ${categoryId} below! 😍`
-            : '😎 Explore All the Components below! 🚀'}
+            : '🚀 Explore All Components Below!'}
         </h2>
-
-        {/* Spinner or Content */}
-        {loading ? (
-          <div className="flex justify-center items-center h-screen">
-            <FaReact className="text-rose-500 animate-spin-slow w-32 h-32" />
-          </div>
-        ) : (
-          <div className="w-full h-full">
-            {(categoryId ? filteredComponents : allCompo).length === 0 ? (
-              <div className="text-center">No components available!</div>
-            ) : (
-              (categoryId ? filteredComponents : allCompo).map((component) => (
-                <MainContent
-                  key={component._id}
-                  compoName={component.name}
-                  compoCode={component.code}
-                  reactCode={component.reactCode}
-                  compoDesc={component.description}
-                />
-              ))
-            )}
-          </div>
-        )}
-        <Footer/>
+        <div className="w-full h-full">
+          {(categoryId ? filteredComponents : allCompo).length === 0 ? (
+            <div className="text-center">No components available!</div>
+          ) : (
+            (categoryId ? filteredComponents : allCompo).map((component) => (
+              <MainContent
+                key={component._id}
+                compoName={component.name}
+                compoCode={component.code}
+                reactCode={component.reactCode}
+                compoDesc={component.description}
+              />
+            ))
+          )}
+        </div>
+        <Footer />
       </div>
     </div>
   );

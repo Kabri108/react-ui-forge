@@ -28,7 +28,13 @@ export default function Navbar() {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
-  const menuItems = ['Home', 'Components', 'Templates', 'Contact'];
+  // Menu items with hrefs
+  const menuItems = [
+    { name: 'QuickStart', href: '/components' },
+    { name: 'Components', href: '/components' },
+    { name: 'Templates', href: '/templates' },
+    { name: 'Contact', href: '/contact' },
+  ];
 
   return (
     <nav className="fixed z-50 w-full top-0 bg-white border-b-2 border-gray-800 dark:bg-dark-primary dark:border-gray-700">
@@ -40,7 +46,7 @@ export default function Navbar() {
             className="font-bold text-rose-500 text-3xl flex gap-2 items-center"
           >
             <FaReact className="animate-spin-slow w-8 h-8" />
-            React Forge
+            React UI Forge
             <span className="text-xs text-gray-500">V: 2.0</span>
           </Link>
 
@@ -48,12 +54,12 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-12">
             <ul className="flex gap-8">
               {menuItems.map((item) => (
-                <li key={item}>
+                <li key={item.name}>
                   <NavLink
-                    to={`/${item.toLowerCase()}`}
+                    to={item.href}
                     className="text-black dark:text-gray-300 hover:text-rose-500 transition duration-200"
                   >
-                    {item}
+                    {item.name}
                   </NavLink>
                 </li>
               ))}
@@ -98,12 +104,12 @@ export default function Navbar() {
           <div className="md:hidden mt-2 bg-gray-300 dark:bg-gray-600 rounded shadow-lg p-4">
             <ul className="space-y-1">
               {menuItems.map((item) => (
-                <li key={item}>
+                <li key={item.name}>
                   <NavLink
-                    to={`/${item.toLowerCase()}`}
+                    to={item.href}
                     className="block px-4 py-2 rounded text-black dark:text-white hover:bg-rose-500 transition duration-200"
                   >
-                    {item}
+                    {item.name}
                   </NavLink>
                 </li>
               ))}

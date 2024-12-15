@@ -63,7 +63,7 @@ const MainContent = ({ compoName, compoCode, compoDesc, reactCode }) => {
           {/* Copy Button */}
           <button
             onClick={copyToClipboard}
-            className="py-1 px-3 flex items-center gap-2 rounded font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200 dark:bg-gray-600 dark:text-gray-300 hover:text-rose-500 dark:hover:text-500  border border-gray-500"
+            className="py-1 px-3 flex items-center gap-2 rounded font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-200 dark:bg-gray-600 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-500  border border-gray-500"
           >
             {isCopied ? (
               <>

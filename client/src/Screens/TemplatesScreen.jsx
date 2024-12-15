@@ -6,9 +6,10 @@ function TemplatesScreen() {
   return (
     <>
     <Navbar/>
-    <div className="flex items-center justify-center dark:bg-dark-gradient bg-light-gradient  h-screen py-20">
-       <FaReact className='w-12 h-12 animate-spin-slow mx-4 text-rose-500'/>
-       <h1 className='text-4xl sm:text-xl text-rose-500'>Comming Soon .....</h1> 
+    <div className="min-h-screen dark:bg-dark-gradient flex justify-center items-center">
+      <h1 className='text-rose-500 flex gap-2 text-4xl '>
+        <FaReact className='animate-spin-slow'/> Comming soon...
+      </h1>
     </div>
     </>
   )

@@ -10,7 +10,6 @@ function App() {
     <Router> 
     <Routes>
       <Route path="/" element={<IntroScreen />} />
-      <Route path="/home" element={<IntroScreen />} />
       <Route path="/components" element={<HomeScreen />} />
       <Route path="/components/:categoryId" element={<HomeScreen />} /> {/* Dynamic route */}
       <Route path="/Templates" element={<TemplatesScreen />} />
