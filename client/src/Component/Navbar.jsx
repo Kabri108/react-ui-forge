@@ -9,6 +9,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
 
+  // Apply theme on load and update localStorage
   useEffect(() => {
     const root = window.document.documentElement;
     if (theme === 'dark') {
@@ -27,62 +28,38 @@ export default function Navbar() {
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
 
+  const menuItems = ['Home', 'Components', 'Templates', 'Contact'];
+
   return (
     <nav className="fixed z-50 w-full top-0 bg-white border-b-2 border-gray-800 dark:bg-dark-primary dark:border-gray-700">
-      <div className="px-3 py-3 lg:px-5 lg:pl-3">
-        <div className="flex justify-between items-center px-5">
+      <div className="px-3 py-3 lg:px-5">
+        <div className="flex justify-between items-center">
           {/* Logo */}
           <Link
             to="/"
             className="font-bold text-rose-500 text-3xl flex gap-2 items-center"
           >
-            <FaReact className="text-rose-500 animate-spin-slow w-8 h-8" />{' '}
+            <FaReact className="animate-spin-slow w-8 h-8" />
             React Forge
-            <span className='text-xs text-gray-500'>V: 2.O</span>
+            <span className="text-xs text-gray-500">V: 2.0</span>
           </Link>
-          <div className=" flex space-x-16">
-            <div className="flex gap-6 justify-center items-center">
-              {/* Desktop Menu */}
-              <ul className="hidden md:flex gap-8">
-                {['Home','Components', 'Templates', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <NavLink
-                      to={`/${item.toLowerCase()}`}
-                      className="text-black dark:text-white hover:text-rose-500 transition duration-200"
-                    >
-                      {item}
-                    </NavLink>
-                  </li>
-                ))}
-              </ul>
 
-              {/* Mobile Menu Button */}
-              <button
-                className="md:hidden text-black dark:text-white transition duration-200"
-                onClick={toggleMobileMenu}
-                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              >
-                {isMobileMenuOpen ? <RiMenuFold4Line /> : <RiMenu3Line />}
-              </button>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-12">
+            <ul className="flex gap-8">
+              {menuItems.map((item) => (
+                <li key={item}>
+                  <NavLink
+                    to={`/${item.toLowerCase()}`}
+                    className="text-black dark:text-gray-300 hover:text-rose-500 transition duration-200"
+                  >
+                    {item}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
 
-              {/* Mobile Menu */}
-              {isMobileMenuOpen && (
-                <ul className="md:hidden absolute top-full left-0 w-full bg-gray-200 dark:bg-gray-600  space-y-1 p-4 rounded shadow-lg divide-y z-50 mt-2">
-                  {['Home','Components', 'Templates', 'Contact'].map((item) => (
-                    <li key={item}>
-                      <NavLink
-                        href={`/${item.toLowerCase()}`}
-                        className="block hover:bg-rose-500 text-black dark:text-white px-4 py-2 rounded transition duration-200"
-                      >
-                        {item}
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            {/* Dark Mode Toggle and LinkedIn */}
+            {/* Theme Toggle and LinkedIn Link */}
             <div className="flex gap-4 items-center">
               <button
                 onClick={toggleTheme}
@@ -95,13 +72,65 @@ export default function Navbar() {
                   <MdSunny className="w-6 h-6" />
                 )}
               </button>
-
-              <Link href="https://www.linkedin.com" target="_blank">
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit LinkedIn"
+              >
                 <FaLinkedin className="w-8 h-8 text-rose-500" />
-              </Link>
+              </a>
             </div>
           </div>
+
+          {/* Mobile Menu Toggle */}
+          <button
+            className="md:hidden text-black dark:text-white"
+            onClick={toggleMobileMenu}
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMobileMenuOpen ? <RiMenuFold4Line /> : <RiMenu3Line />}
+          </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-2 bg-gray-300 dark:bg-gray-600 rounded shadow-lg p-4">
+            <ul className="space-y-1">
+              {menuItems.map((item) => (
+                <li key={item}>
+                  <NavLink
+                    to={`/${item.toLowerCase()}`}
+                    className="block px-4 py-2 rounded text-black dark:text-white hover:bg-rose-500 transition duration-200"
+                  >
+                    {item}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+            <div className="flex items-center justify-between mt-4">
+              <button
+                onClick={toggleTheme}
+                className="text-black dark:text-white"
+                aria-label="Toggle dark mode"
+              >
+                {theme === 'light' ? (
+                  <IoIosMoon className="w-6 h-6" />
+                ) : (
+                  <MdSunny className="w-6 h-6" />
+                )}
+              </button>
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit LinkedIn"
+              >
+                <FaLinkedin className="w-8 h-8 text-rose-500" />
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

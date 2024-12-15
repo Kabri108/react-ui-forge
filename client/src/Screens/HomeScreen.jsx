@@ -50,7 +50,7 @@ function HomeScreen() {
   }, [categoryId]); // Re-run when categoryId changes
 
   return (
-    <div className="flex flex-col bg-light-gradient dark:bg-dark-gradient h-full w-full">
+    <div className="flex flex-col bg-light-gradient dark:bg-dark-gradient min-h-screen w-full">
       <Navbar />
       {/* Sidebar */}
       <Sidebar components={allCompo} />

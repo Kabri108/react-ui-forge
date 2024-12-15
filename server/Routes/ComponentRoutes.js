@@ -20,8 +20,8 @@ router.get('/', async (req, res) => {
 
 // Add a new component
 router.post('/', async (req, res) => {
-    const { name, code,reactCode,category, description } = req.body;
     console.log("Received POST request:", req.body); // Debug log
+    const { name, code,reactCode,category, description } = req.body;
     try {
         const newComponent = new Component({ name, code,reactCode,category, description });
         const savedComponent = await newComponent.save();
