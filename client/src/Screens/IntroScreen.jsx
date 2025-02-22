@@ -1,7 +1,6 @@
 import React from 'react';
 import Navbar from '../Component/Navbar';
 import { FaHeart, FaPlus, FaReact } from 'react-icons/fa';
-import { RiTailwindCssFill } from 'react-icons/ri';
 import { Link } from 'react-router';
 import Footer from '../Component/Footer';
 
@@ -27,8 +26,8 @@ function IntroScreen() {
         {/* Call to Action */}
         <div className="mt-12">
   <Link
-    to="/components"
-    className="bg-rose-500 hover:bg-rose-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition duration-300 text-lg border border-b-2"
+    to="/getting-started"
+    className="bg-rose-600 hover:bg-rose-700 text-white font-medium py-4 px-8 rounded-full shadow-lg transition duration-300 text-lg border border-b-2"
   >
     🚀 Start Forging Now
   </Link>

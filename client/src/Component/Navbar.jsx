@@ -37,7 +37,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed z-50 w-full top-0 bg-white border-b-2 border-gray-800 dark:bg-dark-primary dark:border-gray-700">
+    <nav className="fixed z-50 w-full top-0 bg-white border-b border-gray-500 dark:bg-dark-primary dark:border-gray-700">
       <div className="px-3 py-3 lg:px-5">
         <div className="flex justify-between items-center">
           {/* Logo */}
@@ -47,7 +47,9 @@ export default function Navbar() {
           >
             <FaReact className="animate-spin-slow w-8 h-8" />
             React UI Forge
-            <span className="text-xs text-gray-500">V: 2.0</span>
+            <span className="bg-blue-500 text-white text-xs font-semibold rounded-full px-2 ml-2">
+              Beta
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

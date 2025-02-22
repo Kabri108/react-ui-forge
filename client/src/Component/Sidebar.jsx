@@ -37,7 +37,7 @@ const Sidebar = ({ components }) => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-14 left-0 w-64 min-h-screen bg-sky-50 dark:bg-gray-900  overflow-y-scroll transition-transform duration-300 scrollbar-thin scrollbar-thumb-gray-500 dark:scrollbar-thumb-gray-700 scrollbar-track-gray-300 dark:scrollbar-track-gray-800 ${
+        className={`fixed top-16 left-0 w-64 max-h-[calc(100vh-4rem)] bg-sky-50 dark:bg-gray-900  overflow-y-auto transition-transform duration-300 scrollbar scrollbar-thumb-gray-400 dark:scrollbar-thumb-gray-600 scrollbar-track-gray-100 dark:scrollbar-track-gray-800 ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } lg:translate-x-0`}
       >
@@ -48,8 +48,8 @@ const Sidebar = ({ components }) => {
               Getting Started
             </h2>
             <Link
-              to="/components"
-              className="text-sm font-medium text-gray-800 dark:text-gray-300 hover:text-rose-500 dark:hover:text-rose-500 transition"
+              to="/getting-started"
+              className="text-sm font-medium text-gray-800 dark:text-gray-400 hover:text-black dark:hover:bg-rose-500 transition pl-4 border-l border-gray-700 px-4 py-3  rounded-r hover:border-white hover:border-l-2 dark:hover:text-white"
             >
               Overview and Introduction
             </Link>
@@ -59,7 +59,7 @@ const Sidebar = ({ components }) => {
             <h2 className="text-lg font-semibold text-black dark:text-gray-200 mb-2">
               Components
             </h2>
-            <ul className="border-l pl-4 border-gray-300 dark:border-gray-700">
+            <ul className="border-l  border-gray-300 dark:border-gray-700">
               {categories.map((category) => (
                 <li
                   key={category}
@@ -68,10 +68,10 @@ const Sidebar = ({ components }) => {
                     setIsSidebarOpen(false); // Close sidebar on selection
                   }}
                   aria-selected={isActive(category)}
-                  className={`flex justify-between items-center px-3 py-2 my-1 rounded-lg text-sm font-medium cursor-pointer transition-colors duration-200 ${
+                  className={`flex justify-between items-center px-3 py-2 my-1 rounded-r text-sm font-medium cursor-pointer transition-colors duration-200  ${
                     isActive(category)
-                      ? 'bg-rose-500 text-white'
-                      : 'hover:bg-rose-500 hover:text-white text-gray-800 dark:text-gray-300'
+                      ? 'bg-rose-500 text-white border-l-2  border-white'
+                      : 'hover:bg-rose-500 hover:text-white text-gray-800 dark:text-gray-400'
                   }`}
                 >
                   <span className="truncate">{category}</span>

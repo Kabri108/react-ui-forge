@@ -59,7 +59,7 @@ function HomeScreen() {
             <QuickStart />
           </>
         )}
-        <h2 className="mt-12 flex items-center justify-center text-rose-500 text-3xl font-bold">
+        <h2 className="flex items-center justify-center text-rose-500 text-3xl font-bold">
           {categoryId
             ? `✨ Check out the ${filteredComponents.length} different types of ${categoryId} below! 😍`
             : '🚀 Explore All Components Below!'}
