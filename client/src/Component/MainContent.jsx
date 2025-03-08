@@ -91,6 +91,7 @@ const MainContent = ({ compoName, compoCode, compoDesc, reactCode }) => {
               {reactCode}
             </SyntaxHighlighter>
           )}
+
         </div>
       </div>
     </div>

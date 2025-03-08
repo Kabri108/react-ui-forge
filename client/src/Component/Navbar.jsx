@@ -30,10 +30,10 @@ export default function Navbar() {
 
   // Menu items with hrefs
   const menuItems = [
-    { name: 'QuickStart', href: '/components' },
+    { name: 'About', href: '/' },
+    { name: 'QuickStart', href: '/getting-started' },
     { name: 'Components', href: '/components' },
-    { name: 'Templates', href: '/templates' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Templates', href: '/templates' }
   ];
 
   return (

@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     
 
-<footer class="bg-white dark:bg-dark-primary">
+<footer class="bg-white dark:bg-dark-primary bottom-0">
     <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
@@ -19,10 +19,10 @@ const Footer = () => {
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                          <Link href="/" class="hover:underline"> React-UI-Forge</Link>
+                          <a href="/" class="hover:underline"> React-UI-Forge</a>
                       </li>
                       <li>
-                          <Link href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</Link>
+                          <a target="blank" href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
                       </li>
                   </ul>
               </div>
@@ -30,10 +30,10 @@ const Footer = () => {
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                          <Link href="/" class="hover:underline ">Github</Link>
+                          <a target="blank" href="https://github.com/Kabri108" class="hover:underline ">Github</a>
                       </li>
                       <li>
-                          <a href="/">Discord</a>
+                          <a target="blank" href="https://www.linkedin.com/in/sayantan-kabri-9907b7238/">Linkeden</a>
                       </li>
                   </ul>
               </div>
@@ -41,10 +41,10 @@ const Footer = () => {
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                          <Link href="#" class="hover:underline">Privacy Policy</Link>
+                          <Link href="/" class="hover:underline">Privacy Policy</Link>
                       </li>
                       <li>
-                          <a href="#" class="hover:underline">Terms &amp; Conditions</a>
+                          <a href="/" class="hover:underline">Terms &amp; Conditions</a>
                       </li>
                   </ul>
               </div>
