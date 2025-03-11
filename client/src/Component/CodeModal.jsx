@@ -24,7 +24,7 @@ const CodeModal = ({ template, onClose }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
       <Toaster position="top-right" reverseOrder={false} />
 
-      <div className="bg-white dark:bg-gray-900 rounded-lg w-11/12 max-w-5xl p-6 shadow-lg">
+      <div className="bg-white dark:bg-gray-900 rounded-lg w-11/12 max-w-5xl p-6 shadow-lg z-10">
         {/* Header Section */}
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold text-gray-700 dark:text-gray-200">
@@ -50,7 +50,7 @@ const CodeModal = ({ template, onClose }) => {
           >
             {isCopied ? (
               <>
-                <FaCheck className="text-green-500" /> Copied
+                <FaCheck className="text-green-500"   /> Copied
               </>
             ) : (
               <>
